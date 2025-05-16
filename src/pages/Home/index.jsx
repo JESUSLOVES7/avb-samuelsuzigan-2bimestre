@@ -1,28 +1,41 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
-  const [posts, setPosts] = useState([]);
+  const [countries, setCountries] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/posts?_limit=10")
-      .then((res) => setPosts(res.data));
+    fetch('https://restcountries.com/v3.1/all')
+      .then(res => res.json())
+      .then(data => setCountries(data));
   }, []);
 
   return (
-    <>
-      <div>
-        <h2>Lista de Posts</h2>
-        <ul>
-          {posts.map((post) => (
-            <li key={post.id}>
-              <Link to={`detalhes/${post.id}`}>{post.title}</Link>
-            </li>
-          ))}
-        </ul>
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-300 p-6">
+      <h1 className="text-4xl font-bold text-center text-blue-900 mb-10">
+        Bandeiras dos Países
+      </h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {countries.map((country, index) => (
+          <div
+            key={index}
+            className="bg-white rounded-lg shadow-md hover:shadow-xl cursor-pointer transition"
+            onClick={() => navigate(`/country/${country.cca3}`)}
+          >
+            <img
+              src={country.flags.svg}
+              alt={`Bandeira de ${country.name.common}`}
+              className="w-full h-40 object-cover rounded-t-lg"
+            />
+            <div className="p-4 text-center">
+              <h2 className="text-lg font-semibold text-gray-700">
+                {country.name.common}
+              </h2>
+            </div>
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 }
