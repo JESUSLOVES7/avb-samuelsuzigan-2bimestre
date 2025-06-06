@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+
 import HeaderBack from '../../Components/HeaderBack';
 import FlagImage from '../../Components/FlagImage';
 import CountryInfo from '../../Components/CountryInfo';
@@ -19,15 +20,10 @@ export default function Country() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-white">
       <HeaderBack />
-      <main className="p-8">
-        <FlagImage
-          src={country.flags.svg}
-          alt={`Bandeira de ${country.name.common}`}
-        />
-        <CountryInfo country={country} />
-      </main>
+      <FlagImage image={country.flags.svg} countryName={country.name.common} />
+      <CountryInfo country={country} />
     </div>
   );
 }
