@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Head from '../../Components/Header';
-import CountryGrid from '../../Components/CountryGrid';
-
+import CountryList from '../../Components/CountryList';
 
 export default function Home() {
   const [countries, setCountries] = useState([]);
@@ -18,7 +17,7 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-300">
       <Head />
       <div className="max-w-7xl mx-auto pt-8">
-        <CountryGrid
+        <CountryList
           countries={countries}
           onCardClick={(code) => navigate(`/country/${code}`)}
         />

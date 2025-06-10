@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Head() {
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
@@ -9,10 +11,8 @@ export default function Head() {
 
         {/* Links de Navegação */}
         <nav className="space-x-6 text-gray-700 font-medium hidden sm:flex">
-          <a href="#" className="hover:text-blue-600 transition">Home</a>
-          <a href="#" className="hover:text-blue-600 transition">Descobrir</a>
-          <a href="#" className="hover:text-blue-600 transition">Sobre</a>
-          <a href="#" className="hover:text-blue-600 transition">Contato</a>
+          <Link to="/" className="hover:text-blue-600 transition">Home</Link>
+          <Link to="/favoritos" className="hover:text-blue-600 transition">Favoritos ❤️</Link>
         </nav>
 
         {/* Ícone de perfil */}
