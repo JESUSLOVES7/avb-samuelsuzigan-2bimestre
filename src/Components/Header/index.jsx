@@ -16,8 +16,8 @@ export default function Head() {
 
         {/* Navegação centralizada abaixo do título */}
         <nav className="flex space-x-8 text-gray-700 font-semibold">
-          <Link
-            to="/"
+  <Link
+    to="/"
             className={`hover:text-blue-600 transition ${
               isActive('/') ? 'text-blue-700 underline' : ''
             }`}
