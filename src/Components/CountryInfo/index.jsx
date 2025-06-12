@@ -4,6 +4,8 @@ export default function CountryInfo({ country }) {
       <h3 className="text-3xl font-bold mb-8 text-center border-b pb-4">
         Informações sobre {country.name.common}
       </h3>
+      
+      
 
       <div className="bg-white shadow-lg rounded-lg p-8 space-y-4 text-lg text-gray-700">
         <p><strong>🏛️ Capital:</strong> {country.capital?.[0] ?? 'N/A'}</p>
