@@ -25,7 +25,7 @@ export default function FlagImage({ image, countryName }) {
           {countryName}
         </h1>
         <a href="#detalhes">
-          <button className="bg-white text-black px-6 py-3 rounded shadow hover:bg-gray-200 transition">
+          <button className="text-black bg-white border border-gray-300 hover:bg-gray-100 flex items-center gap-2 px-4 py-2 rounded-md transition">
             Saiba mais
           </button>
         </a>

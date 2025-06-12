@@ -44,7 +44,7 @@ export default function HeaderCountry() {
       <div className="flex justify-center mt-4">
         <button
           onClick={() => navigate(-1)}
-          className="px-6 py-3 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-all flex items-center gap-2"
+          className="text-black bg-white border border-gray-300 hover:bg-gray-100 flex items-center gap-2 px-4 py-2 rounded-md transition"
         >
           <ArrowLeft size={20} /> Voltar
         </button>

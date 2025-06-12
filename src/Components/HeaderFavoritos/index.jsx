@@ -42,7 +42,7 @@ export default function HeaderFavoritos({ clearFavorites }) {
       <div className="flex justify-center mt-4">
         <button
           onClick={clearFavorites}
-          className="px-6 py-3 rounded-full bg-pink-600 text-white font-semibold hover:bg-pink-700 transition-all"
+          className="text-black bg-white border border-gray-300 hover:bg-gray-100 flex items-center gap-2 px-4 py-2 rounded-md transition"
         >
           Limpar Favoritos 🗑️
         </button>
