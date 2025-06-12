@@ -8,7 +8,7 @@ export default function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('https://restcountries.com/v3.1/all')
+    fetch('https://restcountries.com/v3.1/all?fields=name,flags,cca3')
       .then(res => res.json())
       .then(data => setCountries(data));
   }, []);

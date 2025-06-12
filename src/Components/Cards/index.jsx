@@ -15,8 +15,9 @@ export default function CountryCard({ country, onClick }) {
         <h2 className="text-lg font-bold text-gray-800">{country.name.common}</h2>
         <p className="text-sm text-gray-500">{country.region}</p>
         <p className="text-sm text-indigo-600 font-medium">
-          População: {country.population.toLocaleString()}
-        </p>
+  População: {country.population ? country.population.toLocaleString() : 'Indisponível'}
+</p>
+
       </div>
     </div>
   );

@@ -41,16 +41,17 @@ export default function Country() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    // Certifique-se que o contêiner principal ocupa toda a largura disponível
+    <div className="min-h-screen bg-gray-50 flex flex-col w-full"> {/* Adicionado w-full aqui */}
       <HeaderBack />
-      <div className="relative">
+      {/* Este div deve garantir que o FlagImage receba a largura total */}
+      <div className="relative flex-grow w-full"> {/* Adicionado w-full aqui também */}
         <FlagImage image={country.flags.svg} countryName={country.name.common} />
 
         {/* Botão de Favorito */}
         <button
           onClick={toggleFavorite}
-          className={`absolute top-4 right-4 text-3xl ${
-            isFavorite ? 'text-red-500' : 'text-white'
+          className={`absolute top-4 right-4 text-3xl ${isFavorite ? 'text-red-500' : 'text-white'
           } transition-transform hover:scale-110`}
           title={isFavorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}
         >

@@ -1,23 +1,37 @@
-import { useNavigate } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function HeaderFavoritos() {
-  const navigate = useNavigate();
+  const location = useLocation();
+
+  const isActive = (path) => location.pathname === path;
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => navigate('/')}
-            className="text-blue-700 hover:text-blue-500 flex items-center gap-2"
+      <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col items-center">
+        {/* Título centralizado */}
+        <h1 className="text-3xl font-extrabold text-pink-700 mb-2">
+          Favoritos ❤️
+        </h1>
+
+        {/* Navegação igual ao header da Home */}
+        <nav className="flex space-x-8 text-gray-700 font-semibold">
+          <Link
+            to="/"
+            className={`hover:text-pink-600 transition ${
+              isActive('/') ? 'text-pink-700 underline' : ''
+            }`}
           >
-            <ArrowLeft size={20} /> Voltar
-          </button>
-          <h1 className="text-2xl font-bold text-pink-700">
-            ❤️ Meus Favoritos
-          </h1>
-        </div>
+            Home
+          </Link>
+          <Link
+            to="/favoritos"
+            className={`hover:text-pink-600 transition ${
+              isActive('/favoritos') ? 'text-pink-700 underline' : ''
+            }`}
+          >
+            Favoritos ❤️
+          </Link>
+        </nav>
       </div>
     </header>
   );
